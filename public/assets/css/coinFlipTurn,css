@@ -1,0 +1,52 @@
+
+/*--------------------------Coin Flip------------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(159, 159, 223);
+}
+
+.coin {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px solid;
+    perspective: 1000px;
+    transform-style: preserve-3d; /* Keep the 3D transformation */
+    position: relative;
+    transition: transform 1s ease-in-out; /* Smooth transition for the flip */
+}
+
+.front, .back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden; /* Hide the backface */
+}
+
+.front {
+    background-color: gold;
+}
+
+.back {
+    background-color: gray;
+    transform: rotateY(180deg); /* Start the back rotated */
+}
+
+/* Rotate the entire coin when hovered */
+.coin:hover {
+    transform: rotateY(180deg); /* Rotate the coin on hover */
+}

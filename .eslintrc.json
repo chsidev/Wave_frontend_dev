@@ -1,0 +1,23 @@
+{
+  "plugins": ["react-hooks", "jsx-a11y"],
+  "extends": [
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended",
+    "eslint:recommended"
+  ],
+  "rules": {
+    "jsx-a11y/no-static-element-interactions": "off",
+    "react/jsx-no-undef": "off",
+    "eslint-config-next/core-web-vitals": "off",
+    "react/jsx-no-comment-textnodes": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "jsx-a11y/alt-text": "off",
+    "jsx-a11y/click-events-have-key-events": "off", // Disable the specific rule globally
+    "no-undef": "off",
+    "no-unused-vars": "off",
+    "no-dupe-keys": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "no-extra-semi": "off",
+    "no-irregular-whitespace": "off"
+  }
+}

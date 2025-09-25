@@ -1,0 +1,19 @@
+@font-face {
+    font-family: impact;
+    src: url("../../public/font/impact.ttf");
+    font-weight: 300;
+}
+.impact-headings{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 400 !important;
+    font-size: 28px !important;
+}
+.refer-heading{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 400 !important;
+    line-height: 40px;
+}
+.fees-bold{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 500 !important;
+}
