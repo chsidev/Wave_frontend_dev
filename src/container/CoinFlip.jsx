@@ -446,14 +446,14 @@ function CoinFlip() {
     <>
       <TopBar />
       {/*Header*/}
-      <div className="hero-area pool video-top video-medium">
+      <div className="hero-area coinflip video-top video-medium">
         <div className="container">
           <div className="row">
             <div className="col-lg-6 d-flex align-self-center">
               <div className="left-content">
                 <div className="content">
                   <h1 className="title">
-                    <span className="flip-text">Flip the Coin</span>
+                    <span className="flip-text">Flip the Coin,</span>
                     <span className="win-text">Win Big!</span>
                   </h1>
                   <h3 className='sub-title'>CHALLENGE AND TEST YOUR LUCK.</h3>
@@ -477,7 +477,7 @@ function CoinFlip() {
       <div className="featured-game-before coinflip-gradient"></div>
       {/*create challenge*/}
       <section className='prize-pools coinflip activities'>
-        <div className="container">
+        <div className="wave-flip-card-container">
           <div className="row">
             <div className='col-lg-12'>
               <div className='wave-flip-card'>
@@ -601,12 +601,9 @@ function CoinFlip() {
 
       <section className='prize-pools'>
         <div className="container">
-          <div className="row align-items-stretch rounded-5 border border-light p-4">
+          <div className="row align-items-stretch rounded-5 p-4">
             <div className="col-lg-8 d-flex flex-column">
-              <div className="leaderboard-icon">
-                <img src="/assets/images/target.png" alt="Leaderboard" width={60} height={60} />
-              </div>
-              <h3 className="fw-bold text-center mb-4 text-white mt-3" style={{ letterSpacing: 1 }}>
+              <h3 className="fw-bold text-white mb-4 mt-3" style={{ letterSpacing: 1, fontSize: "2.5rem" }}>
                 ACTIVE CHALLENGES
               </h3>
               <div className="col-lg-12 flex-grow-1 d-flex overflow-auto " >
@@ -619,76 +616,91 @@ function CoinFlip() {
                   {historyChallenge.filter(h => address!==undefined && h.isActive && h.creator.userAddress !== address).map((h, j) => (
                     <div
                       key={h.id || j}
-                      className="rounded-4 border border-warning mb-4 p-4"
+                      className="rounded-4 mb-4 p-4"
                       style={{
-                        background: "linear-gradient(135deg, #252c86ff 70%, #222f9eff 100%)",
-                        minHeight: 220,
+                        width: "100%",
+                        background: "url('/assets/images/card.png') no-repeat center center",
+                        backgroundSize: "100% 100%",
+                        minHeight: 300,
                         color: "#fff",
-                        boxShadow: "0 2px 16px rgba(52, 57, 147, 0.15)"
+                        marginLeft: "-1%",
                       }}
                     >
-                      <div className="d-flex align-items-center mb-3">
+                      <div className="d-flex align-items-center mb-3" style={{marginLeft: "4%"}}>
                         <div className="me-4"
                           style={{
                             width: 90,
                             height: 90,
                             display: "flex",
                             alignItems: "center",
-                            justifyContent: "center"
+                            justifyContent: "center",
+                            background: "url('/assets/images/avatar-border.png') no-repeat center center",
+                            backgroundSize: "cover",
+                            padding: "8px"
                           }}
                         >
-                          <img src="/assets/images/activeChallengeAvatar.png" alt="avatar" style={{ width: 90, height: 90, borderRadius: 16 }} />
+                          <img src="/assets/images/activeChallengeAvatar.png" alt="avatar" style={{ width: 60, height: 60, borderRadius: "50%" }} />
                         </div>
                         <div>
                           <div className="fw-bold" style={{ fontSize: "2rem", color: "#ffe872" }}>{shortenAddress(h.creator.userAddress,4)}</div>
                           <div className="fw-bold" style={{ fontSize: "1.4rem" }}>{formatBlockTimestamp(Number(h.createTime))}</div>
                         </div>
-                        <div className="ms-auto text-end">
-                          <div className="fw-bold" style={{ fontSize: 16 }}>WAGER</div>
-                          <div className="d-flex align-items-center rounded-4 px-4 py-2 mt-1" style={{ background: "#494fa9" , minWidth:"20%"}}>
-                            <img src="/logo.png" alt="Wager" style={{ width: 36, marginRight: 8 }} />
-                            <span className="fw-bold" style={{ fontSize: 28, color: "#ffe872" }}><span> {Number(h.xpAmount) / 1e18}</span></span>
+                      </div>
+                      <div className="d-flex align-items-center justif  y-content-between mt-3" style={{marginLeft: "5%"}}>
+                        {/* WAGER and SELECTION together */}
+                        <div className="d-flex align-items-center gap-4">
+                          {/* WAGER */}
+                          <div>
+                            <div className="fw-bold mb-2" style={{ fontSize: 16, color: "#fff" }}>WAGER</div>
+                            <div className="d-flex align-items-center rounded-4 px-4 py-2" style={{ background: "#494fa9" }}>
+                              <img src="/logo.png" alt="Wager" style={{ width: 36, marginRight: 8 }} />
+                              <span className="fw-bold" style={{ fontSize: 28, color: "#ffe872" }}>{Number(h.xpAmount) / 1e18}</span>
+                            </div>
+                          </div>
+                          
+                          {/* SELECTION - Only show the selected choice */}
+                          <div>
+                            <div className="fw-bold mb-2" style={{ fontSize: 16, color: "#fff" }}>SELECTION</div>
+                            <div
+                              className="d-flex align-items-center px-4 py-2"
+                              style={{
+                                background: "#0d208bff",
+                                color: "#ffe872",
+                                border: "2px solid #ffe872",
+                                borderRadius: "16px",
+                                fontSize: 22
+                              }}
+                            >
+                              <img 
+                                src={h.creator.side ? "/assets/images/game/head.png" : "/assets/images/game/tail.png"} 
+                                alt={h.creator.side ? "head" : "tail"} 
+                                style={{ width: 28, marginRight: 8 }} 
+                              />
+                              <span>{h.creator.side ? "Head" : "Tail"}</span>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div className="d-flex align-items-center">
-                        {/* Head */}
-                        <div
-                          className="d-flex align-items-center me-2 px-2 py-2"
-                          style={{
-                            background: h.creator.side ? "#0d208bff" : "#494fa9",
-                            color: h.creator.side ? "#ffe872" : "#fff",
-                            border: h.creator.side ? "2px solid #ffe872" : "2px solid #494fa9",
-                            borderRadius: "16px",
-                            fontSize: 22,
-                            opacity: h.creator.side ? 1 : 0.6
-                          }}
-                        >
-                          <img src="/assets/images/game/head.png" alt="head" style={{ width: 28, marginRight: 8 }} />
-                          <span>Head</span>
-                        </div>
-                        {/* Tail */}
-                        <div
-                          className="count d-flex align-items-center me-3 px-3 py-2"
-                          style={{
-                            background: !h.creator.side ? "#0d208bff" : "#494fa9",
-                            color: !h.creator.side ? "#ffe872" : "#fff",
-                            border: !h.creator.side ? "2px solid #ffe872" : "2px solid #494fa9",
-                            borderRadius: "16px",
-                            fontSize: 22,
-                            opacity: !h.creator.side ? 1 : 0.6
-                          }}
-                        >
-                          <img src="/assets/images/game/tail.png" alt="tail" style={{ width: 28, marginRight: 8 }} />
-                          <span>Tail</span>
-                        </div>
-                          {/* Accept Button */}
+                        
+                        {/* Accept Button - Rectangular with border radius */}
                         <button
                           type="button"
-                          className="mybtn1 link1 ms-auto px-13 py-3 fw-bold"
+                          className="px-4 py-3 fw-bold"
+                          style={{
+                            background: "#FBC950",
+                            color: "#05092D",
+                            border: "none",
+                            borderRadius: "12px",
+                            fontSize: "16px",
+                            fontWeight: "600",
+                            textTransform: "uppercase",
+                            cursor: "pointer",
+                            transition: "all 0.3s ease",
+                            marginRight: "5%",
+                            marginBottom: "-5%"
+                          }}
                           disabled={pending || allowance <= h.xpAmount}
                           onClick={() => !pending && allowance > h.xpAmount ? enterChallengeHandler(h.challengeId, h.xpAmount, !h.creator.side) : approveHandler()}>
-                          <span>{allowance > h.xpAmount ? 'ACCEPT' : 'APPROVE'}</span>
+                          {allowance > h.xpAmount ? 'ACCEPT' : 'APPROVE'}
                         </button>
                       </div>
                     </div>

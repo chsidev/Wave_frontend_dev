@@ -372,12 +372,41 @@
 }
 
 .table-container {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
+  width: 360px;
+  height: 786.18px;
+  border-radius: 49.05px;
   padding: 16px;
   margin-bottom: 20px;
-  max-height: 400px;
   overflow-y: auto;
+  
+  /* Background: Linear gradient from #030954 to #070A33 */
+  background: linear-gradient(to right, #030954 0%, #070A33 100%);
+  
+  /* Border: Radial gradient stroke */
+  border: 3.07px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+}
+
+.table-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 49.05px;
+  padding: 3.07px;
+  background: radial-gradient(circle, 
+    #03ECFD 12%, 
+    #3648F5 36%, 
+    #8803F5 74%, 
+    #5802F9 100%);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  z-index: -1;
 }
 
 .leaderboard-row {

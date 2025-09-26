@@ -6,14 +6,15 @@ function HowTo() {
   return (
     <>
       <TopBar />
-      <div className="hero-area pool">
+      <div className="hero-area howto">
         <div className="container">
-          <div className="row">
+          <div className="row howto-hero-content">
             <div className="col-lg-5 d-flex align-self-center">
               <div className="left-content">
                 <div className="content">
                   <h1 className="title">
-                    Learn How to Play & Win Big
+                    <span className="learn-how-text">Learn How<br />to Play &</span>
+                    <span className="win-big-text">Win Big</span>
                   </h1>
                   <p className="text">
                     Discover how to join our community-driven prize pools and win rewards securely through a provably fair system powered by Chainlink VRF.
@@ -28,12 +29,15 @@ function HowTo() {
               <div className="hero-img d-none d-md-block">
                 <img className="shape man" src="/assets/images/play-big.png" alt="" />
               </div>
+              
             </div>
           </div>
-          <img className="howto" src="/assets/images/how-to-get-started.svg" alt="" />
-          <img className="howto-mobile" src="/assets/images/how-to-get-started-mobile.svg" alt="" />
         </div>
-      </div>
+      </div>          
+      <img className="howto-hero-gif" src="/hero.gif" alt="" />
+      <div className="featured-game-before howto-gradient"></div>
+      <img className="howto" src="/assets/images/how-to-get-started.svg" alt="" />
+      <img className="howto-mobile" src="/assets/images/how-to-get-started-mobile.svg" alt="" />
 
       {/* Prize Distribution Section */}
       <section className="prize-distribution">

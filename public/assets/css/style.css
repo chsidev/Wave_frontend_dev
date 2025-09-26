@@ -751,7 +751,8 @@ select:focus {
   mask-clip: content-box, border-box;
   -webkit-mask-composite: xor;  
   mask-composite: exclude;
-  animation: spin 3s linear infinite;
+  animation: none; /* Disable the spinning animation */
+  display: none; /* Or completely hide the animated border */
 }
 
 
@@ -2078,15 +2079,30 @@ w3m-button [role="button"] {
 }
 
 /* Hero Area Start */
-.hero-area {
+/* .hero-area {
   position: relative;
   padding: 230px 0px 350px;
   position: relative;
   overflow: hidden;
+} */
+.hero-area.home {
+  padding: 200px 0px 350px;
 }
 .hero-area.pool {
-  padding: 300px 0px 287px;
+  padding: 250px 0px 300px;
 }
+.hero-area.coinflip {
+  padding: 350px 0px 450px;
+}
+.hero-area.howto {
+  margin-top: 111px;
+  padding: 100px 0px 0px;  
+  background: none;
+  z-index: 1;
+}
+
+/* How To page gradient overlay */
+
 .hero-area.pool .hero-img {
   top: -100px;
 }
@@ -2111,7 +2127,7 @@ w3m-button [role="button"] {
 
 /* Coin Flip specific text sizing */
 .hero-area .left-content .content .title .flip-text {
-  font-size: 120px;
+  font-size: 75px;
   font-weight: 900;
   color: #FDE36C;
   display: block;
@@ -2120,7 +2136,7 @@ w3m-button [role="button"] {
 }
 
 .hero-area .left-content .content .title .win-text {
-  font-size: 140px;
+  font-size: 135px;
   font-weight: 900;
   color: #FDE36C;
   display: block;
@@ -2404,6 +2420,28 @@ w3m-button [role="button"] {
     rgba(7, 12, 77, 1) 50%,       /* solid around 30% */
     rgba(7, 12, 77, 0.9) 70%,     /* softer opacity around 70% */
     rgba(7, 12, 77, 1) 100%       /* back to transparent at the bottom */
+  );
+}
+
+.howto-hero-gif {
+  width: 100%;
+  height: 400px;
+  margin-top: -200px;
+  z-index: -5;
+}
+
+.howto-gradient {
+  margin-top: -400px;
+  height: 400px;
+  z-index: 0;
+  position: relative;
+  background: linear-gradient(
+    to bottom,
+    rgba(7, 12, 77, 1) 0%,        
+    rgba(7, 12, 77, 0.2) 30%,       
+    rgba(7, 12, 77, 0.3) 60%,       
+    rgba(7, 12, 77, 0.2) 90%,     
+    rgba(7, 12, 77, 1) 100%       
   );
 }
 
@@ -4368,9 +4406,19 @@ p, .text, .description, .content p {
   text-decoration: none;
 }
 
+/* Wave Flip Card Container - Unique Background */
+.wave-flip-card-container {
+  width: 92%;
+  height: 450px;
+  background: url('/assets/images/card.png') no-repeat center center;
+  background-size: cover;
+  border-radius: 20px;
+  padding: 40px;
+  margin: 0 auto;
+}
+
 /* Wave Flip Card - New Design */
 .wave-flip-card {
-  background: #05092D;
   border: none;
   padding: 30px;
   margin: 0 20px;
@@ -4438,7 +4486,7 @@ p, .text, .description, .content p {
 
 .wave-flip-title {
   color: #FBC950;
-  font-size: 24px;
+  font-size: 35px;
   font-weight: 700;
   margin: 0 0 8px 0;
   text-transform: none;
@@ -4457,6 +4505,7 @@ p, .text, .description, .content p {
   align-items: flex-end;
   gap: 40px;
   flex-wrap: wrap;
+  margin-top: 5%;
 }
 
 .approve-section {
@@ -4466,8 +4515,8 @@ p, .text, .description, .content p {
 }
 
 .section-label {
-  color: #FBC950;
-  font-size: 12px;
+  color: #FFF;
+  font-size: 20px;
   font-weight: 600;
   text-transform: uppercase;
   margin-bottom: 10px;
@@ -4490,7 +4539,7 @@ p, .text, .description, .content p {
   cursor: pointer;
   transition: all 0.3s ease;
   color: #FFFFFF;
-  font-size: 14px;
+  font-size: 28px;
   font-weight: 600;
 }
 
@@ -4507,7 +4556,7 @@ p, .text, .description, .content p {
 .choice-option {
   background: transparent;
   border: 2px solid #FBC950;
-  border-radius: 12px;
+  border-radius: 25px;
   padding: 10px 20px;
   display: flex;
   align-items: center;
@@ -5710,7 +5759,7 @@ p, .text, .description, .content p {
 /* Bonus banner Area End */
 /* Dashboard Area Start */
 .dashboard-area {
-  margin-top: 250px;
+  margin-top: 80px;
 }
 .dashboard-area .page-title {
   font-size: 48px;
@@ -5774,6 +5823,7 @@ p, .text, .description, .content p {
   font-family: 'Orbitron', sans-serif;
   color: #FFFFFF;
   margin-top: auto;
+  margin-left: 25%;
   margin-bottom: 5px;
 }
 .xp-status .xp-box .balance {
@@ -5781,6 +5831,7 @@ p, .text, .description, .content p {
   align-items: center;
   gap: 10px;
   margin-bottom: 10px;
+  margin-left: 25%;
 }
 
 .xp-status .xp-box .balance img {
@@ -5805,6 +5856,7 @@ p, .text, .description, .content p {
 }
 
 .single-awards {
+  min-height: 450px;
   margin-bottom: 55px;
   position: relative;
   display: block;
@@ -5815,10 +5867,7 @@ p, .text, .description, .content p {
   border: none;
   border-radius: 0;
   background: url('/assets/images/card-single-awards.png') no-repeat center center;
-  background-size: contain;
-  /* Consistent size */
-  /* height: 400px; */ /* Removed to preserve aspect ratio */
-  /* Anti-aliasing for smooth edges */
+  background-size: cover;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   image-rendering: auto;
@@ -5833,7 +5882,7 @@ p, .text, .description, .content p {
   background: url('/assets/images/avatar-border.png') no-repeat center center;
   background-size: cover;
   margin: auto;
-  margin-bottom: 40px;
+  margin-bottom: 10%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -5852,8 +5901,8 @@ p, .text, .description, .content p {
   font-family: sans-serif;
 }
 .single-awards .content .icon img {
-  width: 60px;
-  height: 60px;
+  width: 75%;
+  height: auto;
   border-radius: 50%;
   object-fit: cover;
   position: relative;
@@ -5923,7 +5972,43 @@ p, .text, .description, .content p {
           transform: translateY(-10px);
 }
 
-/* Dashboard Area End */
+/* How To Page Title Styling */
+.learn-how-text {
+  display: block;
+  font-size: 55px;
+  font-weight: 700;
+  color: #FDE36C;
+  line-height: 1.2;
+  margin-bottom: 0.2em;
+}
+
+.win-big-text {
+  display: block;
+  font-size: 90px;
+  font-weight: 800;
+  color: #FDE36C;
+  line-height: 1.1;
+}
+
+@media (max-width: 768px) {
+  .learn-how-text {
+    font-size: 2rem;
+  }
+  
+  .win-big-text {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .learn-how-text {
+    font-size: 1.8rem;
+  }
+  
+  .win-big-text {
+    font-size: 2.4rem;
+  }
+}
 /*  How Play Area Start */
 .how-play {
   padding: 112px 0px 593px;
