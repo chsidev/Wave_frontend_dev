@@ -2093,9 +2093,9 @@ w3m-button [role="button"] {
 }
 .hero-area.coinflip {
   padding: 350px 0px 450px;
-}
+} 
 .hero-area.howto {
-  margin-top: 111px;
+  margin-top: 150px;
   padding: 100px 0px 0px;  
   background: none;
   z-index: 1;
@@ -2445,7 +2445,185 @@ w3m-button [role="button"] {
   );
 }
 
-/* CoinFlip page gradient overlay */
+/* Daily Draw and Mega Wave Cards */
+.distribution-box {
+  width: 110%;
+  background: url('/assets/images/card-s.png') no-repeat center center;
+  background-size: cover;
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 30px;
+  margin-left: -5%;
+  position: relative;
+  min-height: 330px;
+}
+
+.box-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-left: 5%;
+}
+
+.box-icon {
+  width: 60px;
+  height: auto;
+  background: url('/assets/images/avatar-border.png') no-repeat center center;
+  background-size: 115% auto;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  /* Smooth edges */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  image-rendering: auto;
+  image-rendering: smooth;
+}
+
+.box-icon img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.box-title-container {
+  flex: 1;
+  margin-left: 10px;
+}
+
+.box-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.box-details {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  margin-left: 0px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.detail-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.detail-text {
+  color: #fff;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 14px;
+}
+
+/* Prize Split Section */
+.prize-split {
+  margin-top: 20px;
+  margin-left: 5%;
+}
+
+.prize-split-title {
+  color: #fff;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.prize-split-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.prize-split-list li {
+  color: #fff;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 14px;
+  margin-bottom: 5px;
+  padding-left: 15px;
+  position: relative;
+}
+
+.prize-split-list li::before {
+  content: "•";
+  color: #FDE36C;
+  position: absolute;
+  left: 0;
+}
+
+/* Alternative Entry Section */
+.alternative-entry {
+  width: 108%;
+  height: 350px;
+  background: url('/assets/images/card-alt.png') no-repeat center center;
+  background-size: cover;
+  border-radius: 20px;
+  padding: 30px;
+  margin: 30px 0;
+  margin-left: -4%;
+  position: relative;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.entry-icon {
+  width: 80px;
+  height: auto;
+  background: url('/assets/images/rect-border.png') no-repeat center center;
+  background-size: 110% auto;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: 4%;
+  margin-top: -15%;
+  /* Smooth edges */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  image-rendering: auto;
+  image-rendering: smooth;
+}
+
+.entry-icon img {
+  width: 90px;
+  height: auto;
+  object-fit: contain;
+}
+
+.entry-content {
+  flex: 1;
+}
+
+.entry-content .box-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  margin-top: -7%;
+}
+
+.entry-text {
+  color: #fff;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
 .coinflip-gradient {
   margin-top: -300px;
   height: 300px;
